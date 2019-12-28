@@ -1,4 +1,4 @@
-import { ShoppingCart } from 'src/app/models/shopping-cart';
+import { ShoppingCart } from './../models/shopping-cart';
 import { ShoppingCartService } from './../shopping-cart.service';
 import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
@@ -6,7 +6,7 @@ import { CategoryService } from './../category.service';
 import { ProductService } from './../product.service';
 import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/models/product';
+import { Product } from './../models/product';
 
 @Component({
   selector: 'app-products',
