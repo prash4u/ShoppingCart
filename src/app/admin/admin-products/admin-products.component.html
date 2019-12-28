@@ -1,0 +1,99 @@
+<p>
+    <a routerLink="/admin/products/new" class="btn btn-primary">New Product</a>
+</p>
+<p>
+    <input
+    #query
+    (keyup)="filter(query.value)"
+     type="text" class="form-control" placeholder="Search...">
+</p>
+
+<!-- <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="md-form">
+          <input type="text" class="form-control" [(ngModel)]="searchText" (keyup)="filter(query.value)" id="search-input"
+                 mdbInput>
+          <label for="search-input">Search</label>
+        </div>
+      </div>
+      <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" striped="true" class="z-depth-1">
+        <thead class="sticky-top">
+        <tr>
+           <th *ngFor="let head of headElements; let i = index" [mdbTableSort]="elements" [sortBy]="headElements[i]"
+              scope="col">{{head | titlecase}} <mdb-icon fas icon="sort"></mdb-icon>
+          </th> -->
+          <!-- <th>Title</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody #row>
+        <tr mdbTableCol (rowCreated)="onRowCreate($event)" (rowRemoved)="onRowRemove($event)" *ngFor="let el of elements; let i = index">
+          <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" scope="row">{{el.id}}</th>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="red-text">{{el.first}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.last}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.handle}}</td>
+        </tr>
+        </tbody>
+        <tfoot class="grey lighten-5 w-100">
+        <tr>
+          <td colspan="4">
+            <mdb-table-pagination [tableEl]="tableEl" paginationAlign="" [searchDataSource]="elements"></mdb-table-pagination>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div> -->
+  <!--</div> -->
+
+
+<!-- <data-table
+    [items] ="items"
+    [itemCount] ="itemCount"
+    (reload) ="reloadItems($event)">
+
+    <data-table-column
+        [property]="'title'"
+        [header] = "'Title'"
+        [sortable] = "'true'"
+        [resizable] = "'true'">
+    </data-table-column>
+
+    <data-table-column
+        [property]="'price'"
+        [header] = "'Price'"
+        [sortable] = "'true'"
+        [resizable] = "'true'">
+
+        <ng-template #dataTableCell let-item="product">
+            {{product.price | currency:'USD': true}}
+        </ng-template>
+    </data-table-column>
+
+</data-table> -->
+
+
+
+
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover"> 
+
+<!-- </table> -->
+<!-- <table class="table"> -->
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of filteredProducts">
+            <td>{{p.title}}</td>
+            <td>{{p.price}}</td>
+            <td>
+                <a [routerLink]="['/admin/products/',p.key]">Edit</a>
+            </td>
+        </tr>
+    </tbody> 
+</table>
