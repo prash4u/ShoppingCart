@@ -1,9 +1,11 @@
+
+import { Product } from './../../models/product';
 import { ProductService } from './../../product.service';
 import { AngularFireList } from '@angular/fire/database';
-import { Observable } from 'rxjs';
 import { CategoryService } from './../../category.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 //import { take } from 'rxjs/operators';
 
 @Component({
@@ -12,8 +14,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./product-form.component.css']
 })
 export class ProductFormComponent implements OnInit {
-  categories$//
-  product ={}; //initially set it to BLANK object
+  categories$;//
+  product:any={};//=new Product;//{key:"",imageUrl:"",category:"",price:0,title:""};//[]=[]; //initially set it to BLANK object
   id;
   
   constructor(
@@ -27,7 +29,18 @@ export class ProductFormComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id'); //this will read the id of the products coming from db, id--LwcvPcNleUmuC6rgkrU
               //like http://localhost:4200/admin/products/-LwcvPcNleUmuC6rgkrU
 
-    if(this.id) this.productService.get(this.id).subscribe(p => this.product =p) ;
+    if(this.id) 
+    {
+      this.productService.get(this.id)
+       .subscribe(p =>{
+         this.product=p
+       })
+      console.log("this.product:" + this.product);
+
+    }
+    // .subscribe(p => {
+    //   this.product =p
+    // console.log("p object:"+ p.)}) ;
 
     //.snapshotChanges()
     // .forEach(categoriesSnap =>{

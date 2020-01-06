@@ -6,6 +6,7 @@ import { CategoryService } from './../category.service';
 import { ProductService } from './../product.service';
 import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+//import { Product } from 'src/app/models/product';
 import { Product } from './../models/product';
 
 @Component({

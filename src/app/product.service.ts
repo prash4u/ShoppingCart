@@ -1,7 +1,10 @@
-import { AngularFireDatabase } from '@angular/fire/database';
+//import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
+import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
 //import { AngularFireDatabase } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { Product } from './models/product';
 
 
 @Injectable({
@@ -28,6 +31,7 @@ export class ProductService {
 
   get(productId){
       return this.db.object('/products/' + productId).valueChanges();
+      
   }
 
   update(productId, product){

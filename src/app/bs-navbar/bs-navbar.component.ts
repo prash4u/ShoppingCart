@@ -17,6 +17,7 @@ export class BsNavbarComponent implements OnInit{
 
 appUsr:AppUser;
 shoppingCartItemCount: number;
+collapsed = true;
 
   constructor(private auth: AuthService, private shoppingCartService: ShoppingCartService) { 
     //this.user$=afAuth.authState;//.subscribe(user => this.user=user);
@@ -47,6 +48,10 @@ shoppingCartItemCount: number;
       
   }
 
+  toggleCollapsed(): void {
+    this.collapsed = !this.collapsed;
+  }
+  
   logout() {
     //this.afAuth.auth.signOut();    //move this logic to AuthService
     this.auth.logout(); //being called from AuthService
